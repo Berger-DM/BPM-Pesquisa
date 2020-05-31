@@ -126,7 +126,10 @@ def count_elements(df, element, subprocess=False):
                     result = boundaryEvent.find(inner)
                     if result:
                         if boundaryEvent.has_attr("cancelActivity"):
-                            inner_df.at[index, inner + 'NonInterrupting'] += 1
+                            if boundaryEvent['cancelActivity'] == "false":
+                                inner_df.at[index, inner + 'NonInterrupting'] += 1
+                            else:
+                                inner_df.at[index, inner] += 1
                         else:
                             inner_df.at[index, inner] += 1
                 for innerElement in innerElements:
@@ -191,9 +194,8 @@ def start_counts():
                     found = collaboration.find_all(innerElement)
                     dataframe.at[innerElement, 'regular'] += len(found)
             # dataframe.to_csv(os.path.join(output_location, pathway.split('/')[-1] + '.csv'))  # For manual checks
-        final_df = final_df + dataframe  # Final dataframe before removing empty rows and columns
+        final_df = final_df + dataframe.astype(bool).astype(int)  # Final dataframe b4 removing empty rows and columns
     final_df = final_df.loc[(final_df.sum(axis=1) != 0), (final_df.sum(axis=0) != 0)]  # Cleans up uneeded lack of info
-    final_df = final_df.astype(bool).astype(int)  # Line added to provide only presence (boolean) values; remove for total count
     print(final_df)
     gui_exit_layout = [[psg.Text("Files have been processed, and output will be at the specified location ")],
                        [psg.Text("under the name 'count_bpmn_elements.csv'.")],
