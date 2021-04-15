@@ -1,7 +1,7 @@
 # BPM-Pesquisa
 Work developed with the BPM-INF-UFRGS research group.
 
-1. [BPMNCount](https://github.com/Berger-DM/BPM-Pesquisa/tree/master/BPMNCount) - BPMN Element counting in .bpmn files, distinguishing their variations and subprocess presence.
+## [BPMNCount](https://github.com/Berger-DM/BPM-Pesquisa/tree/master/BPMNCount) - BPMN Element counting in .bpmn files, distinguishing their variations and subprocess presence.
 
     This module counts elements in a set of .bpmn files in a single, one-level folder (meaning it does not consider files in child folders).
 
@@ -18,3 +18,5 @@ Work developed with the BPM-INF-UFRGS research group.
     The module allows as an input parameter an empty list of files, but must have an output location specified. This is by design.
 
     WARNING: This module overwrites any file with the same name as the output (unless it would be the exact same; in that case, it leaves the previous file as is and does not write a new one).
+
+## [PIPEorCPNToolsToWoflan](https://github.com/Berger-DM/BPM-Pesquisa/tree/master/PIPEtoWoflan) - Petri Net description files conversion, from XML files output by PIPE and CPN files output by CPNTools, to TPN files required as input for Woflan.
