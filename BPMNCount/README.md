@@ -1,3 +1,5 @@
+## BPMNCount
+
 This module counts elements in a set of .bpmn files in a single, one-level folder (meaning it does not consider files in child folders).
 
 It has dependencies on pandas, bs4, lxml and PySimpleGUI. Pandas is used to store intermediate informations and deliver the output file; 
