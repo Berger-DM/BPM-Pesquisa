@@ -1,3 +1,5 @@
+## PIPEorCPNToolsToWoflan
+
 This module converts XML and CPN files containing Petri net descriptions to a TPN file containing a Petri net description. It allows for more than one file to be input at a time, as long as they are in a single, one-level folder (meaning it ignores child folders).
 
 It has dependencies on bs4, lxml and PySimpleGUI. bs4 and lxml allow us to navigate the XML and CPN (which is also formatted as a XML file) files; PySimpluGUI is used to provide a more user-friendly interface with which to work with the module.
